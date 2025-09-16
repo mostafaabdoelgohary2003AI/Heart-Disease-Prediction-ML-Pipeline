@@ -4,7 +4,7 @@ A comprehensive machine learning web application for heart disease risk assessme
 
 ## 🌟 Live Demo
 
-**[Try the App Here](https://your-app-name.streamlit.app)** *(Update with your actual Streamlit Cloud URL)*
+**[Try the App Here](https://mostafaabdoelgohary2003ai-heart-disease-pr-streamlit-app-ifxlfo.streamlit.app/)** *(Update with your actual Streamlit Cloud URL)*
 
 ## 📋 Features
 
@@ -27,7 +27,7 @@ A comprehensive machine learning web application for heart disease risk assessme
 ## 🚀 Quick Start
 
 ### Option 1: Use Online (Recommended)
-Simply visit the [live demo](https://your-app-name.streamlit.app) - no installation required!
+Simply visit the [live demo](https://mostafaabdoelgohary2003ai-heart-disease-pr-streamlit-app-ifxlfo.streamlit.app/) - no installation required!
 
 ### Option 2: Run Locally
 ```bash
@@ -242,7 +242,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📞 Support
 
 If you have questions or need help:
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/heart-disease-prediction/issues)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/mostafaabdoelgohary2003AI/heart-disease-prediction/issues)
 - 📧 **Contact**: your.email@example.com
 - 📖 **Documentation**: Check the About page in the app
 
