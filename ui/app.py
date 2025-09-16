@@ -67,8 +67,8 @@ st.markdown('<h1 class="main-header">❤️ Heart Disease Prediction System</h1>
 def load_models():
     try:
         # Try to load the final model (will be created after hyperparameter tuning)
-        model = joblib.load('../models/final_model.pkl')
-        scaler = joblib.load('../models/scaler.pkl')
+        model = joblib.load('models/final_model.pkl')
+        scaler = joblib.load('models/scaler.pkl')
         return model, scaler, True
     except:
         # If final model doesn't exist, create a placeholder
@@ -78,7 +78,7 @@ def load_models():
 @st.cache_data
 def load_sample_data():
     try:
-        return pd.read_csv('../data/heart_disease_cleaned.csv')
+        return pd.read_csv('data/heart_disease_cleaned.csv')
     except:
         # Create sample data if file doesn't exist
         np.random.seed(42)
@@ -211,9 +211,9 @@ elif page == "📊 Prediction":
             slope_num = ["Upsloping", "Flat", "Downsloping"].index(slope)
             thal_num = ["Normal", "Fixed Defect", "Reversible Defect"].index(thal)
             
-            # Create input array
-            input_data = np.array([[age, sex_num, cp_num, trestbps, chol, fbs_num, restecg_num,
-                                  thalach, exang_num, oldpeak, slope_num, ca, thal_num]])
+            # Create input array with ALL 13 features in correct order
+            # Order: ['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal']
+            input_data = np.array([[age, sex_num, cp_num, trestbps, chol, fbs_num, restecg_num, thalach, exang_num, oldpeak, slope_num, ca, thal_num]])
             
             # Scale the input data (if scaler is available)
             if scaler:
