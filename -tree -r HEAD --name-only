@@ -1,0 +1,5 @@
+[33m875ef0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Improve model accuracy to 90%+
+[33m09022ba[m \Heart Disease Prediction App - Ready for Streamlit Cloud deployment"
+[33m4ccd989[m FINAL FIX: Complete working app.py - Self-contained ML model for deployment
+[33m874ed88[m Add main.py - Complete self-contained Heart Disease Prediction app for Streamlit Cloud
+[33m38ddc1d[m Add heart_disease_app.py - Final working version for Streamlit Cloud deployment
