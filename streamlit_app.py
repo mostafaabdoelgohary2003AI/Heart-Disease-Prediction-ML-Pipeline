@@ -127,7 +127,8 @@ def load_real_trained_models():
         return model, scaler, accuracy, precision, recall, f1, data, feature_importance
         
     except Exception as e:
-        st.warning(f"⚠️ Could not load trained models: {str(e)}. Using fallback demonstration model.")
+        st.warning(f"⚠️ Could not load trained models from pkl files: {str(e)}")
+        st.info("🔄 **Using your REAL performance metrics** with demonstration model for Streamlit Cloud compatibility")
         
         # Fallback: Create a simple model with your REAL metrics for demo
         from sklearn.ensemble import RandomForestClassifier
@@ -814,12 +815,18 @@ elif page == "🎯 Clustering Analysis":
         
         # Cross-tabulation of clusters vs actual labels
         cluster_disease = pd.crosstab(cluster_labels, y)
-        cluster_disease_df = cluster_disease.reset_index()
-        cluster_disease_df = cluster_disease_df.melt(id_vars=['Cluster'], 
-                                                   value_vars=[0, 1],
-                                                   var_name='Disease Status', 
-                                                   value_name='Count')
-        cluster_disease_df['Disease Status'] = cluster_disease_df['Disease Status'].map({0: 'No Disease', 1: 'Disease'})
+        
+        # Create a proper dataframe for plotting
+        cluster_data = []
+        for cluster_idx in cluster_disease.index:
+            for disease_status in cluster_disease.columns:
+                cluster_data.append({
+                    'Cluster': cluster_idx,
+                    'Disease Status': 'Disease' if disease_status == 1 else 'No Disease',
+                    'Count': cluster_disease.loc[cluster_idx, disease_status]
+                })
+        
+        cluster_disease_df = pd.DataFrame(cluster_data)
         
         fig_cluster_disease = px.bar(cluster_disease_df, 
                                    x='Cluster', y='Count', color='Disease Status',

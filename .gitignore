@@ -22,10 +22,8 @@ venv.bak/
 # Model files - Allow essential models for deployment
 *.h5
 *.joblib
-# Allow key model files for Streamlit Cloud
-!models/best_randomforest_model.pkl
-!models/final_model.pkl
-!models/scaler.pkl
+# Allow all .pkl files in models directory for Streamlit Cloud
+!models/*.pkl
 
 # IDE
 .vscode/
