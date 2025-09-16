@@ -1,0 +1,1 @@
+Heart Disease Prediction - Model Evaluation Results\n==================================================\nBest Model: Random Forest (All Features)\nBest F1-Score: 0.885\nSelected Features: ['thal', 'cp', 'exang', 'ca', 'oldpeak', 'thalach', 'slope', 'sex']\nDataset Shape: (303, 14)\nPCA Components (90% var): 10\nK-Means Silhouette: 0.133\nHierarchical Silhouette: 0.167\n
