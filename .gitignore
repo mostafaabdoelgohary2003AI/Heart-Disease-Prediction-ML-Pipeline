@@ -11,17 +11,21 @@ env.bak/
 venv.bak/
 .ipynb_checkpoints/
 
-# Data files
-*.csv
+# Data files - Allow essential data for deployment
 *.xlsx
 *.xls
+# Allow key data files for Streamlit Cloud
 !data/heart_disease.csv
+!data/heart_disease_cleaned.csv
+!results/supervised_learning_results.csv
 
-# Model files
-*.pkl
+# Model files - Allow essential models for deployment
 *.h5
 *.joblib
+# Allow key model files for Streamlit Cloud
+!models/best_randomforest_model.pkl
 !models/final_model.pkl
+!models/scaler.pkl
 
 # IDE
 .vscode/

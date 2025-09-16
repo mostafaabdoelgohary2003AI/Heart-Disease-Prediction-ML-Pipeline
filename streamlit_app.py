@@ -814,10 +814,16 @@ elif page == "🎯 Clustering Analysis":
         
         # Cross-tabulation of clusters vs actual labels
         cluster_disease = pd.crosstab(cluster_labels, y)
-        fig_cluster_disease = px.bar(cluster_disease.reset_index(), 
-                                   x='Cluster', y=[0, 1],
+        cluster_disease_df = cluster_disease.reset_index()
+        cluster_disease_df = cluster_disease_df.melt(id_vars=['Cluster'], 
+                                                   value_vars=[0, 1],
+                                                   var_name='Disease Status', 
+                                                   value_name='Count')
+        cluster_disease_df['Disease Status'] = cluster_disease_df['Disease Status'].map({0: 'No Disease', 1: 'Disease'})
+        
+        fig_cluster_disease = px.bar(cluster_disease_df, 
+                                   x='Cluster', y='Count', color='Disease Status',
                                    title='Heart Disease Distribution by Cluster',
-                                   labels={'0': 'No Disease', '1': 'Disease'},
                                    barmode='group')
         st.plotly_chart(fig_cluster_disease, use_container_width=True)
     
